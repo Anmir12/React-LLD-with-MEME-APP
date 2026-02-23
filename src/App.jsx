@@ -1,38 +1,40 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import MemeCard from "./components/MemeCard";
+import Shimmer from "./components/Shimmer";
 
 function App() {
   const [memesData, setMemesData] = useState([]);
-  // const [isLoading,setIsLoading] =useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     fetchMemesData();
   }, []);
- 
- const fetchMemesData = async () => {
+
+  const fetchMemesData = async () => {
     try {
-      // setIsLoading(true);
-      const data = await fetch("https://meme-api.com/gimme/20");
+      setIsLoading(true);
+      const data = await fetch("https://meme-api.com/gimme/50");
       const json = await data.json();
-      const {memes} =json;
+      const { memes } = json;
       console.log(json);
-      console.log(memes);
       setMemesData(memes);
-      // setIsLoading(false)
+      setIsLoading(false);
     } catch (error) {
       if (error) {
         return new Error("Error while making an api call");
       }
-      // setIsLoading(false)
+      setIsLoading(false);
     }
   };
-  return (
-    <div className="memes-container">
-      {memesData.map((meme, idx) => {
-        return <div className="flex h-100 w-100 border border-black " key={meme?.url}>
-          <p>{meme?.author}</p>
-          <p>{meme?.title}</p>
-        </div>;
+  return isLoading ? (
+   <Shimmer/>
+  ) : (
+    <div className="flex flex-wrap border border-black">
+      {memesData && memesData.map((meme, idx) => {
+        return (
+        <MemeCard memes={meme} key={meme?.url}/>
+        );
       })}
     </div>
   );
