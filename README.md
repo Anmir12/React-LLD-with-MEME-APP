@@ -28,7 +28,7 @@ We are implementing the following core features using **React Router DOM** and s
 * **Feb 22:** Developed the initial `Shimmer` component for the loading state.
 * **Feb 23:** Integrated the live API (`meme-api.com`) and established the data flow.
 * **Feb 24:** Implemented Conditional Rendering and fixed Shimmer layout shifts using fixed-height containers.
-* **Feb 24:****Auth Logic:** Developed a reusable `ProtectedRoute` wrapper component to handle navigation guards.
+* **Feb 25:** **Auth Logic:** Developed a reusable `ProtectedRoute` wrapper component to handle navigation guards.
 ---
 
 ### **🛠️ Tech Stack**
