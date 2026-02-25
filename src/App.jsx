@@ -1,43 +1,26 @@
-import { useState, useEffect } from "react";
-import "./App.css";
-import MemeCard from "./components/MemeCard";
-import Shimmer from "./components/Shimmer";
+import React from "react";
+import Body from "./components/Body";
+import Header from "./components/Header";
+import { BrowserRouter, Routes,Route } from 'react-router'
+import About from "./components/About";
+import Testing from "./components/Testing";
+import ProtectedRoute from "./components/ProtectedRoute";
 
-function App() {
-  const [memesData, setMemesData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    fetchMemesData();
-  }, []);
-
-  const fetchMemesData = async () => {
-    try {
-      setIsLoading(true);
-      const data = await fetch("https://meme-api.com/gimme/50");
-      const json = await data.json();
-      const { memes } = json;
-      console.log(json);
-      setMemesData(memes);
-      setIsLoading(false);
-    } catch (error) {
-      if (error) {
-        return new Error("Error while making an api call");
-      }
-      setIsLoading(false);
-    }
-  };
-  return isLoading ? (
-   <Shimmer/>
-  ) : (
-    <div className="flex flex-wrap border border-black">
-      {memesData && memesData.map((meme, idx) => {
-        return (
-        <MemeCard memes={meme} key={meme?.url}/>
-        );
-      })}
+const App = () => {
+  return (
+    <div>
+      <Header />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Body />}></Route>
+          <Route element={<ProtectedRoute />}>
+            <Route path="/about" element={<About />}></Route>
+            <Route path="/testing" element={<Testing />}></Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
