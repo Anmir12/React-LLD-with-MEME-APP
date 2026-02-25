@@ -9,8 +9,8 @@ import ProtectedRoute from "./components/ProtectedRoute";
 const App = () => {
   return (
     <div>
-      <Header />
       <BrowserRouter>
+      <Header />
         <Routes>
           <Route path="/" element={<Body />}></Route>
           <Route element={<ProtectedRoute />}>
