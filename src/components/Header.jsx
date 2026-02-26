@@ -17,8 +17,8 @@ const Header = () => {
         <a href="/testing">{lang_Data.testing}</a>
         <select className='bg-black text-white' onChange={(e)=>langChangeHandler(e)}>
           <option value="en">English</option>
-          <option value="te">Hindi</option>
-          <option value="hi">Telugu</option>
+          <option value="te">Telugu</option>
+          <option value="hi">Hindi</option>
         </select>
       </div>
     </div>
