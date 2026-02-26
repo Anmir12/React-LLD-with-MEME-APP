@@ -1,12 +1,25 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
+import { LANG_CONFIG } from '../utils/LangConfig';
+import LangContext from '../Context/LangContext';
 
 const Header = () => {
+  const {lang,setLang} = useContext(LangContext);
+  const lang_Data = LANG_CONFIG[lang];
+
+  const langChangeHandler = (e)=>{
+    setLang(e.target.value)
+  }
   return (
     <div className="flex m-2 p-4 bg-gray-700 text-white font-extrabold">
-      <div className='flex gap-3'>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/testing">Testing</a>
+      <div className="flex gap-3">
+        <a href="/">{lang_Data.home}</a>
+        <a href="/about">{lang_Data.about}</a>
+        <a href="/testing">{lang_Data.testing}</a>
+        <select className='bg-black text-white' onChange={(e)=>langChangeHandler(e)}>
+          <option value="en">English</option>
+          <option value="te">Hindi</option>
+          <option value="hi">Telugu</option>
+        </select>
       </div>
     </div>
   );
