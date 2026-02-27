@@ -1,0 +1,29 @@
+import React, { useEffect, useState } from "react";
+
+const UseFetchData = () => {
+  const [memesData, setMemesData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    const fetchMemesData = async () => {
+      try {
+        setIsLoading(true);
+        const data = await fetch("https://meme-api.com/gimme/50");
+        const json = await data.json();
+        const { memes } = json;
+        console.log(json);
+        setMemesData(memes || []);
+        setIsLoading(false);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchMemesData();
+  }, []);
+
+  return { memesData, isLoading };
+};
+
+export default UseFetchData;
