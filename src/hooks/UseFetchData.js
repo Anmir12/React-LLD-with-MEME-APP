@@ -14,7 +14,11 @@ const UseFetchData = () => {
   }, []);
 
   const handleInfiniteScroll = () => {
-    if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
+    if (isLoading) return;
+    if (
+      window.innerHeight + window.scrollY >=
+      document.body.scrollHeight - 100
+    ) {
       fetchMemesData();
     }
   };
