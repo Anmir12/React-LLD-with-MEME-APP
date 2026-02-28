@@ -6,15 +6,14 @@ import UseFetchData from "../hooks/UseFetchData";
 function Body() {
   const { memesData, isLoading } = UseFetchData();
 
-  return isLoading ? (
-    <Shimmer />
-  ) : (
+  return (
     <div>
       <div className="flex flex-wrap border border-black bg-gray-400">
         {memesData &&
           memesData.map((meme, idx) => {
             return <MemeCard memes={meme} key={meme?.url || idx} />;
           })}
+      {isLoading && <Shimmer />}
       </div>
     </div>
   );
