@@ -21,7 +21,7 @@ const About = () => {
             <div className="font-bold text-2xl">
               {item?.title}
               <button
-                onClick={() => handleToggle()}
+                onClick={() => handleToggle(item.id)}
                 className="float-right text-4xl align-baseline cursor-pointer"
               >
                 {buttonToggle ? "+" : "-"}
