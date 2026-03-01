@@ -1,10 +1,10 @@
 import React, { createContext, useState } from 'react'
-import { accordionData } from '../utils/constants';
+import { ACCORDION_DATA } from '../utils/constants';
 
 const LangContext = createContext();
 export const LangProvider = ({ children }) => {
   const [lang, setLang] = useState("en");
-  const [accordionItems, setAccordionItems] = useState(accordionData || []);
+  const [accordionItems, setAccordionItems] = useState(ACCORDION_DATA || []);
   const [openItem, setOpenitem] = useState(null);
   const handleToggle = (id) => {
     setOpenitem((prevId) => (prevId === id ? null: id));

@@ -5,6 +5,7 @@ import { LANG_CONFIG } from "../utils/LangConfig";
 const About = () => {
   const { lang,openItem,handleToggle,accordionItems } = useContext(LangContext);
   const data = LANG_CONFIG[lang];
+  const accordionList = accordionItems[lang]
 
   return (
     <div className="flex flex-col">
@@ -13,11 +14,11 @@ const About = () => {
         <p className="text-gray-600 leading-relaxed">{data.description}</p>
       </div>
       <div className="border border-black">
-        {accordionItems?.map((item, idx) => {
+        {accordionList?.map((item, idx) => {
           let activeItem = openItem === item.id;
          return <div
             className="flex flex-col gap-3 m-4 p-4 border border-black"
-            key={item.id || idx}
+            key={item.id}
           >
             <div className="font-bold text-2xl">
               {item?.title}
