@@ -1,16 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import LangContext from "../Context/LangContext";
 import { LANG_CONFIG } from "../utils/LangConfig";
-import { accordionData } from "../utils/constants";
 
 const About = () => {
-  const { lang } = useContext(LangContext);
+  const { lang,buttonToggle,handleToggle,accordionItems,setAccordionItems } = useContext(LangContext);
   const data = LANG_CONFIG[lang];
-  const [accordionItems,setAccordionItems] = useState(accordionData || []);
-  const [buttonToggle,setButtonToggle] = useState(true);
-  const handleToggle = ()=>{
-   setButtonToggle((prev)=> !prev)
-  }
+
   return (
     <div className="flex flex-col">
       <div className="p-10">
@@ -32,7 +27,7 @@ const About = () => {
                 {buttonToggle ? "+" : "-"}
               </button>
             </div>
-            <p>{item?.content}</p>
+            <p>{buttonToggle && item?.content}</p>
           </div>
         ))}
       </div>
