@@ -5,12 +5,12 @@ const LangContext = createContext();
 export const LangProvider = ({ children }) => {
   const [lang, setLang] = useState("en");
   const [accordionItems, setAccordionItems] = useState(accordionData || []);
-  const [buttonToggle, setButtonToggle] = useState(true);
-  const handleToggle = () => {
-    setButtonToggle((prev) => !prev);
+  const [openItem, setOpenitem] = useState(null);
+  const handleToggle = (id) => {
+    setOpenitem((prevId) => (prevId === id ? null: id));
   };
   return (
-    <LangContext.Provider value={{ lang, setLang, buttonToggle, handleToggle,accordionItems,setAccordionItems }}>
+    <LangContext.Provider value={{ lang, setLang, openItem, handleToggle,accordionItems,setAccordionItems }}>
       {children}
     </LangContext.Provider>
   );

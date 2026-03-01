@@ -3,7 +3,7 @@ import LangContext from "../Context/LangContext";
 import { LANG_CONFIG } from "../utils/LangConfig";
 
 const About = () => {
-  const { lang,buttonToggle,handleToggle,accordionItems,setAccordionItems } = useContext(LangContext);
+  const { lang,openItem,handleToggle,accordionItems } = useContext(LangContext);
   const data = LANG_CONFIG[lang];
 
   return (
@@ -13,8 +13,9 @@ const About = () => {
         <p className="text-gray-600 leading-relaxed">{data.description}</p>
       </div>
       <div className="border border-black">
-        {accordionItems?.map((item, idx) => (
-          <div
+        {accordionItems?.map((item, idx) => {
+          let activeItem = openItem === item.id;
+         return <div
             className="flex flex-col gap-3 m-4 p-4 border border-black"
             key={item.id || idx}
           >
@@ -24,12 +25,12 @@ const About = () => {
                 onClick={() => handleToggle(item.id)}
                 className="float-right text-4xl align-baseline cursor-pointer"
               >
-                {buttonToggle ? "+" : "-"}
+                {activeItem ? "-" : "+"}
               </button>
             </div>
-            <p>{buttonToggle && item?.content}</p>
-          </div>
-        ))}
+            <p>{activeItem && item?.content}</p>
+          </div>;
+        })}
       </div>
     </div>
   );
