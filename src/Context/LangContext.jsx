@@ -10,7 +10,7 @@ export const LangProvider = ({ children }) => {
     setOpenitem((prevId) => (prevId === id ? null: id));
   };
   return (
-    <LangContext.Provider value={{ lang, openItem, handleToggle,accordionItems }}>
+    <LangContext.Provider value={{ lang,setLang, openItem, handleToggle,accordionItems }}>
       {children}
     </LangContext.Provider>
   );
