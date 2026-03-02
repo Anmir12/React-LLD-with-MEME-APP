@@ -83,3 +83,31 @@ export const ACCORDION_DATA = {
     }
   ]
 };
+
+export const SLIDER_IMAGES = [
+  {
+    id: 1,
+    url: "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    title: "Mountain Peaks",
+  },
+  {
+    id: 2,
+    url: "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    title: "Snowy Range",
+  },
+  {
+    id: 3,
+    url: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    title: "Alpine Valley",
+  },
+  {
+    id: 4,
+    url: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    title: "Sunset Lake",
+  },
+  {
+    id: 5,
+    url: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    title: "Misty Forest",
+  }
+];
