@@ -7,6 +7,7 @@ import Testing from "./components/Testing";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { LangProvider } from "./Context/LangContext";
 import ImageSlider from "./components/ImageSlider";
+import Comments from "./components/Comments";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
             </Route>
             <Route path="/about" element={<About />}></Route>
             <Route path="/images" element={<ImageSlider />}></Route>
+            <Route path="/comments" element={<Comments />}></Route>
           </Routes>
         </BrowserRouter>
       </div>

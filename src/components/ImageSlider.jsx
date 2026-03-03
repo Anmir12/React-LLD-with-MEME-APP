@@ -18,15 +18,19 @@ const ImageSlider = () => {
    }
   const i = setInterval(()=>{
     setActiveImage((prev) => (prev + 1) % SLIDER_IMAGES.length);
-  },3000)
+  },1000)
 
   return ()=>{
     clearInterval(i)
   }
  },[activeImage,isPaused])
   return (
-    <div className="flex items-center justify-center min-h-[500px]" onMouseEnter={()=>setIsPaused(true)} onMouseLeave={()=>setIsPaused(false)}>
-      <div className="flex m-10 items-center justify-center bg-gray-50 p-6 rounded-2xl shadow-sm">
+    <div className="flex items-center justify-center min-h-[500px]">
+      <div
+        className="flex m-10 items-center justify-center bg-gray-50 p-6 rounded-2xl shadow-sm"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
         <button
           className="text-8xl text-gray-300 hover:text-blue-500 transition-colors leading-none pb-4"
           onClick={prevImageHandler}
