@@ -8,6 +8,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import { LangProvider } from "./Context/LangContext";
 import ImageSlider from "./components/ImageSlider";
 import Comments from "./components/Comments";
+import { COMMENT_DATA } from "./utils/constants";
 
 const App = () => {
   return (
@@ -22,7 +23,7 @@ const App = () => {
             </Route>
             <Route path="/about" element={<About />}></Route>
             <Route path="/images" element={<ImageSlider />}></Route>
-            <Route path="/comments" element={<Comments />}></Route>
+            <Route path="/comments" element={<Comments comments={COMMENT_DATA} />}></Route>
           </Routes>
         </BrowserRouter>
       </div>
