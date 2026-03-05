@@ -9,6 +9,7 @@ import { LangProvider } from "./Context/LangContext";
 import ImageSlider from "./components/ImageSlider";
 import Comments from "./components/Comments";
 import { COMMENT_DATA } from "./utils/constants";
+import PaginationUI from "./components/Pagination/PaginationUI";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
             <Route path="/about" element={<About />}></Route>
             <Route path="/images" element={<ImageSlider />}></Route>
             <Route path="/comments" element={<Comments comments={COMMENT_DATA} />}></Route>
+            <Route path="/pagination" element={<PaginationUI />}></Route>
           </Routes>
         </BrowserRouter>
       </div>

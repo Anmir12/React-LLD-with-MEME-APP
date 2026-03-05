@@ -6,6 +6,7 @@ export const LANG_CONFIG = {
         testing: "Testing",
         imageSlider: "Image Slider",
         nestedComments: "Nested Comments",
+        pagination:"Pagination",
         description: "A production-ready MEME Application focused on Low-Level Design (LLD) principles, high-performance components, and advanced React patterns like Context API and Custom Hooks."
     },
     te: {
@@ -15,6 +16,7 @@ export const LANG_CONFIG = {
         testing: "పరీక్షించడం",
         imageSlider: "ఇమేజ్ స్లైడర్",
         nestedComments: "నెస్టెడ్ కామెంట్స్",
+        pagination:"పేజినేషన్",
         description: "ఇది లో-లెవల్ డిజైన్ (LLD), అధిక పనితీరు గల కాంపోనెంట్స్ మరియు అడ్వాన్స్‌డ్ రియాక్ట్ ప్యాటర్న్స్‌పై దృష్టి సారించిన ప్రొడక్షన్-రెడీ మీమ్ అప్లికేషన్."
     },
     hi: {
@@ -24,6 +26,7 @@ export const LANG_CONFIG = {
         testing: "परीक्षण",
         imageSlider: "इमेज स्लाइडर",
         nestedComments: "नेस्टेड कमेंट्स",
+        pagination:"पृष्ठांकन",
         description: "यह एक प्रोडक्शन-रेडी मीम एप्लीकेशन है जो लो-लेवल डिज़ाइन (LLD) सिद्धांतों, हाई-परफॉरमेंस कॉम्पोनेन्ट और एडवांस्ड रिएक्ट पैटर्न पर केंद्रित है।"
     }
 };
