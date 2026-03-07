@@ -202,3 +202,29 @@ export const COMMENT_DATA = [
     ],
   },
 ];
+
+
+const usernames = ["Shaik_Dev", "React_Ninja", "Frontend_Guru", "Akshay_Saini_Fan", "Lofi_Vibes", "BugHunter", "Pixel_Pioneer", "SDE_Intern", "CaffeineCode"];
+
+const messages = [
+  "Hello from Ongole! 👋",
+  "Is this project using Tailwind?",
+  "The Shimmer UI looks amazing! 🔥",
+  "Can you explain the recursion again?",
+  "LLD is so important for SDE-2 interviews.",
+  "Love the dark mode support! 🌙",
+  "How are you handling the memory leak?",
+  "Subscribed! 🔔",
+  "Can we use Redux Toolkit here?",
+  "This is better than the original YouTube chat! 🚀"
+];
+
+export const generateRandomChatMessage = () => {
+  const randomSeed = Math.floor(Math.random() * 1000);
+  return {
+    id: Math.random().toString(36).substr(2, 9),
+    username: usernames[Math.floor(Math.random() * usernames.length)],
+    message: messages[Math.floor(Math.random() * messages.length)],
+    profilePicture: `https://api.dicebear.com/7.x/avataaars/svg?seed=${randomSeed}`
+  };
+};

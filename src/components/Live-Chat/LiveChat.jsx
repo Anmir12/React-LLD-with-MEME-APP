@@ -1,8 +1,13 @@
 import React from 'react'
+import VideoPlayer from './VideoPlayer'
+import LiveComments from './LiveComments'
 
 const LiveChat = () => {
   return (
-    <div>LiveChat</div>
+    <div className='flex h-[600px]'>
+    <VideoPlayer/>
+    <LiveComments/>
+    </div>
   )
 }
 
