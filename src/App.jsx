@@ -10,6 +10,7 @@ import ImageSlider from "./components/ImageSlider";
 import Comments from "./components/Comments";
 import { COMMENT_DATA } from "./utils/constants";
 import PaginationUI from "./components/Pagination/PaginationUI";
+import LiveChat from "./components/Live-Chat/LiveChat";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
             <Route path="/images" element={<ImageSlider />}></Route>
             <Route path="/comments" element={<Comments comments={COMMENT_DATA} />}></Route>
             <Route path="/pagination" element={<PaginationUI />}></Route>
+            <Route path="/livechat" element={<LiveChat />}></Route>
           </Routes>
         </BrowserRouter>
       </div>
