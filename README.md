@@ -53,7 +53,7 @@ To build a production-ready MEME Application using **ReactJS** and **Tailwind CS
 - **API Polling Simulation:** Built a `setInterval` engine to mock real-time message delivery every 1.5s.
 - **Memory Optimization (Splicing):** Implemented a "Fixed-Buffer" array logic. Used `splice(0, 1)` to remove the oldest messages from the top (Index 0) while pushing new ones to the bottom, preventing DOM memory leaks.
 - **Layout Architecture:** Mastered `flex-col-reverse` and Coordinate System Mastery to ensure messages flow from bottom-to-top, mimicking production chat apps like YouTube and Twitch.
-
+#### **Mar 9: SearchBar Component**
 ---
 
 ### **💡 Core LLD Concepts Mastered**
