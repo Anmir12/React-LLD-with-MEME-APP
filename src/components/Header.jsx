@@ -19,6 +19,7 @@ const Header = () => {
         <a href="/comments">{lang_Data.nestedComments}</a>
         <a href="/pagination">{lang_Data.pagination}</a>
         <a href="/livechat">{lang_Data.liveChat}</a>
+        <a href="/searchBar">{lang_Data.searchBar}</a>
         <select className='bg-black text-white' onChange={(e)=>langChangeHandler(e)}>
           <option value="en">English</option>
           <option value="te">Telugu</option>

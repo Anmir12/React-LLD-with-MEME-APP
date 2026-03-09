@@ -11,6 +11,7 @@ import Comments from "./components/Comments";
 import { COMMENT_DATA } from "./utils/constants";
 import PaginationUI from "./components/Pagination/PaginationUI";
 import LiveChat from "./components/Live-Chat/LiveChat";
+import SearchBar from "./components/SearchBar";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
             <Route path="/comments" element={<Comments comments={COMMENT_DATA} />}></Route>
             <Route path="/pagination" element={<PaginationUI />}></Route>
             <Route path="/livechat" element={<LiveChat />}></Route>
+            <Route path="/searchBar" element={<SearchBar />}></Route>
           </Routes>
         </BrowserRouter>
       </div>
