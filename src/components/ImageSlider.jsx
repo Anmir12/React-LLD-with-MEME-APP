@@ -18,7 +18,7 @@ const ImageSlider = () => {
    }
   const i = setInterval(()=>{
     setActiveImage((prev) => (prev + 1) % SLIDER_IMAGES.length);
-  },1000)
+  },2000)
 
   return ()=>{
     clearInterval(i)
