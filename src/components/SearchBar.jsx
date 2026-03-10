@@ -4,50 +4,65 @@ const SearchBar = () => {
   const [searchInput, setSearchInput] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const handleInputChange = (e) => {
-    setSearchInput(e.target.value);
-  };
+  const [cache, setCache] = useState({});
 
   useEffect(() => {
     const t = setTimeout(() => {
-      fetchData();
+      if (cache[searchInput]) {
+        setSuggestions(cache[searchInput]);
+      } else {
+        fetchData();
+      }
     }, 300);
 
-    return () => {
-      clearTimeout(t);
-    };
+    return () => clearTimeout(t);
   }, [searchInput]);
+
   const fetchData = async () => {
+    if (!searchInput) return;
     const data = await fetch(
-      `https://www.google.com/complete/search?client=firefox&q=${searchInput}`,
+      `https://www.google.com/complete/search?client=firefox&q=${searchInput}`
     );
     const json = await data.json();
     setSuggestions(json[1]);
+
+    // Updating Cache Object
+    setCache((prev) => ({
+      ...prev,
+      [searchInput]: json[1],
+    }));
   };
-  console.log(suggestions);
+
   return (
-    <div
-      className="flex  flex-col items-center justify-center"
-      onFocus={() => setShowSuggestions(true)}
-      onBlur={() => setShowSuggestions(false)}
-    >
-      <div className="flex items-center justify-center gap-1">
+    <div className="flex flex-col items-center relative py-8">
+      <div className="flex items-center gap-2">
         <input
           type="text"
-          placeholder="please enter your search"
+          placeholder="Search..."
           value={searchInput}
-          onChange={(e) => handleInputChange(e)}
-          className="border border-solid border-black w-96 mt-2 p-4 rounded-md"
+          onFocus={() => setShowSuggestions(true)}
+          onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
+          onChange={(e) => setSearchInput(e.target.value)}
+          className="border border-gray-400 w-96 p-3 rounded-full px-6 outline-none focus:ring-2 focus:ring-blue-400"
         />
-        <button className="border border-solid border-black mt-2 p-4 rounded-md">
+        <button className="bg-blue-600 text-white p-3 px-6 rounded-full font-bold">
           Search
         </button>
       </div>
+
       {showSuggestions && suggestions.length > 0 && (
-        <div className="flex flex-col border border-solid border-black w-4/12 mt-1 rounded-md h-48 overflow-y-scroll">
-          {suggestions?.map((suggestion, idx) => {
-            return <p key={idx}>{suggestion}</p>;
-          })}
+        <div className="absolute top-[85px] bg-white border border-gray-200 w-5/12 rounded-xl shadow-2xl z-50">
+          <ul className="py-2">
+            {suggestions.map((s, idx) => (
+              <li 
+                key={idx} 
+                className="px-5 py-2 hover:bg-gray-100 cursor-pointer text-sm flex items-center gap-2"
+                onClick={() => setSearchInput(s)}
+              >
+                🔍 {s}
+              </li>
+            ))}
+          </ul>
         </div>
       )}
     </div>
