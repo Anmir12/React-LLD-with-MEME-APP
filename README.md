@@ -15,7 +15,8 @@ To build a production-ready MEME Application using **ReactJS** and **Tailwind CS
 - ✅ **Reddit-style Nested Comments** - Mastering recursion in components.
 - ✅ **Backend Pagination (Dynamic)** - Engineered offset-based data fetching.
 - ✅ **YouTube Live Chat Clone** - Managing high-frequency state updates with memory safety.
-- [ ] **Input Search with Debouncing** - Optimizing performance for user input (**Next Stop!**).
+- ✅ YouTube Live Chat Clone - Managing high-frequency state updates with memory safety.
+- ✅ Optimized Search Bar - Implementation of Debouncing and Memoization (Caching).
 
 ---
 
